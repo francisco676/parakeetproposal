@@ -15,6 +15,7 @@
     --yellow:#DDFF4D;
     --ink:#0b1020;
     --gray:#6b7280;
+    --gray-soft:#9aa1ad;
     --bg:#ffffff;
     --bg-soft:#f7f8fb;
     --line:#e7e9ef;
@@ -336,14 +337,47 @@
 
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
   .hero .hero-plate{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+
+  /* ==== TOP VOICES SECTION ==== */
+  .voices-intro{margin-top:40px}
+  .post-mock{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 32px;max-width:580px;box-shadow:0 1px 0 rgba(0,0,0,.02),0 12px 32px -16px rgba(11,16,32,.12);position:relative}
+  .post-mock::before{content:"in";position:absolute;top:-14px;right:24px;background:#0a66c2;color:#fff;width:28px;height:28px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:14px;letter-spacing:-0.04em;font-style:italic}
+  .post-header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .post-avatar{width:44px;height:44px;border-radius:999px;background:linear-gradient(135deg,#3d68f5,#2a3ad8);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Inter',sans-serif;font-weight:700;font-size:16px;letter-spacing:-0.02em;flex-shrink:0}
+  .post-header .who{font-family:'Inter',sans-serif;font-weight:700;font-size:15px;color:var(--ink);letter-spacing:-0.01em;line-height:1.3}
+  .post-header .who .role{display:block;font-weight:400;font-size:12px;color:var(--gray);margin-top:2px}
+  .post-header .who .meta-line{display:block;font-weight:400;font-size:11px;color:var(--gray-soft);margin-top:4px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
+  .post-body{font-size:14px;color:var(--ink);line-height:1.55;margin-bottom:18px}
+  .post-body p{margin:0 0 10px}
+  .post-body p:last-child{margin-bottom:0}
+  .post-body strong{font-weight:700}
+  .post-stats{display:flex;align-items:center;gap:16px;padding-top:14px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gray);text-transform:uppercase}
+  .post-stats .stat-pill{display:inline-flex;align-items:center;gap:6px}
+  .post-stats .stat-pill strong{color:var(--ink);font-weight:700;font-family:'Inter',sans-serif;letter-spacing:-0.01em;text-transform:none;font-size:13px}
+  .post-stats .highlight{margin-left:auto;background:var(--yellow);color:var(--ink);padding:4px 10px;border-radius:999px;font-weight:600;letter-spacing:.1em}
+
+  .benchmarks{margin-top:48px;border-top:1px solid var(--line)}
+  .benchmark-row{display:grid;grid-template-columns:200px 1fr auto;gap:32px;align-items:center;padding:24px 0;border-bottom:1px solid var(--line)}
+  .benchmark-row .who{font-family:'Inter',sans-serif;font-weight:700;font-size:18px;letter-spacing:-0.01em;color:var(--ink);line-height:1.3}
+  .benchmark-row .who .role{display:block;font-weight:400;font-size:13px;color:var(--gray);margin-top:2px;letter-spacing:0}
+  .benchmark-row .who .stat{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:1px;transition:color .15s ease,border-color .15s ease}
+  .benchmark-row .who .stat:hover{color:var(--ink);border-color:var(--ink)}
+  .benchmark-row .who .stat .ext{font-size:9px;opacity:.6}
+  .benchmark-row .what{font-size:15px;color:var(--ink);line-height:1.5;max-width:520px}
+  .benchmark-row .what em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;background:linear-gradient(180deg,transparent 65%,var(--yellow) 65%,var(--yellow) 92%,transparent 92%);padding:0 .04em}
+  .benchmark-row .tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);text-align:right;line-height:1.5;white-space:nowrap}
+  .benchmark-takeaway{margin-top:32px;padding:24px 28px;background:var(--bg-soft);border-radius:16px;border-left:3px solid var(--blue);max-width:720px}
+  .benchmark-takeaway p{margin:0;font-size:16px;line-height:1.5;color:var(--ink)}
+  .benchmark-takeaway p em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
+  @media (max-width:680px){.benchmark-row{grid-template-columns:1fr;gap:8px;padding:20px 0}.benchmark-row .tag{text-align:left}}
 </style>
 </head>
 <body>
 
 <aside class="outline-col" aria-label="Proposal sections">
   <div class="outline-label">In this proposal</div>
-  <div class="outline-total">~12 min read</div>
-  <div class="outline-total-sub">11 sections</div>
+  <div class="outline-total">~13 min read</div>
+  <div class="outline-total-sub">12 sections</div>
   <ol>
     <li><a href="#bet">The bet</a><span class="read-time">1 min</span></li>
     <li><a href="#gap">The 6-month gap</a><span class="read-time">2 min</span></li>
@@ -352,6 +386,7 @@
     <li><a href="#kpis">The KPIs</a><span class="read-time">1 min</span></li>
     <li><a href="#timeline">90-day timeline</a><span class="read-time">1 min</span></li>
     <li><a href="#proof">PandaDoc receipt</a><span class="read-time">30 sec</span></li>
+    <li><a href="#voices">Top voices</a><span class="read-time">1 min</span></li>
     <li><a href="#whynow">Why now</a><span class="read-time">2 min</span></li>
     <li><a href="#offer">The offer</a><span class="read-time">2 min</span></li>
     <li><a href="#honest">The honest part</a><span class="read-time">2 min</span></li>
@@ -384,9 +419,9 @@
       <div class="outline-pill" aria-label="Proposal outline">
         <span class="outline-label">What you'll cover</span>
         <span class="outline-sep">·</span>
-        <span>11 sections</span>
+        <span>12 sections</span>
         <span class="outline-sep">·</span>
-        <span>~12 min read</span>
+        <span>~13 min read</span>
         <span class="outline-sep">·</span>
         <span class="outline-jump">jump to any section in the sidebar <span class="chev">→</span></span>
       </div>
@@ -618,6 +653,76 @@
         </div>
       </div>
     </details>
+  </section>
+</div>
+
+<!-- ===================== TOP VOICES ===================== -->
+<div class="wrap">
+  <section id="voices">
+    <div class="eyebrow">The voices that own their categories</div>
+    <h2>This is what an audience <em>actually looks like</em>.</h2>
+    <p class="body voices-intro">PandaDoc's 36x lift is one receipt. The pattern repeats wherever a founder commits to posting in their category, and the three voices below are what it looks like when that audience asset is fully built. All three sit in Parakeet's exact buyer or the closest adjacent category: a bootstrapped founder who ran his LinkedIn account as the engine all the way to $26M ARR, the canonical "AI for cold email" voice with the LinkedIn Top Sales Voice badge, and an 8-figure outbound training business with LinkedIn as the only top-of-funnel.</p>
+
+    <!-- LinkedIn-style mock post -->
+    <div class="post-mock">
+      <div class="post-header">
+        <div class="post-avatar">WA</div>
+        <div class="who">
+          Will Allred
+          <span class="role">Co-Founder, Lavender (now Ora.im) · LinkedIn Top Sales Voice</span>
+          <span class="meta-line">9h · Edited</span>
+        </div>
+      </div>
+      <div class="post-body">
+        <p>Got a DM from a VP of Sales yesterday.</p>
+        <p><strong>"I've been reading your teardowns for 18 months. We need Lavender. Just send the contract."</strong></p>
+        <p>No discovery call. No pitch deck. He'd already pre-qualified himself across 200+ posts.</p>
+        <p>This is what I keep trying to tell founders selling into sales teams: nobody buys a cold email tool because the demo was good. They buy it because they already trust the person who built it. The only way to compound that trust at scale is to post. Daily. Specifically. With receipts.</p>
+        <p>Lavender went <em>0 → 30,000+ active users</em> without a single SDR. The top of the funnel was my account. That was the engine.</p>
+        <p><strong>If you sell into sales orgs and your founder is silent on LinkedIn, your competition's founder isn't. And the AE reading their posts is the same AE evaluating you next quarter.</strong></p>
+      </div>
+      <div class="post-stats">
+        <span class="stat-pill"><strong>1,847</strong> reactions</span>
+        <span class="stat-pill"><strong>203</strong> comments</span>
+        <span class="stat-pill highlight">Illustrative</span>
+      </div>
+    </div>
+
+    <p class="body" style="margin-top:24px">The post above is illustrative, composed in the style and substance of what Will publishes daily. <strong>The pattern is real and verifiable on his profile.</strong> Founder posts → category recognition → pipeline that arrives pre-qualified. This is the engine we're proposing to build for Eric.</p>
+
+    <div class="benchmarks">
+      <div class="benchmark-row">
+        <div class="who">
+          Guillaume Moubeche
+          <span class="role">Co-Founder &amp; CEO, Lemlist (lempire)</span>
+          <a class="stat" href="https://www.linkedin.com/in/guillaumemoubeche/" target="_blank" rel="noopener">200K+ across socials <span class="ext">↗</span></a>
+        </div>
+        <div class="what">Bootstrapped Lemlist from $0 to <em>$26M ARR</em> and refused a $30M offer at a $150M valuation. Built the brand by posting on LinkedIn about the journey, building in public, and pulling his team in to do the same. The cleanest proof that a founder's account can <em>replace a sales engine</em> at Parakeet's exact stage and category.</div>
+        <div class="tag">Cold email · Founder-led</div>
+      </div>
+      <div class="benchmark-row">
+        <div class="who">
+          Will Allred
+          <span class="role">Co-Founder, Lavender (now Ora.im)</span>
+          <a class="stat" href="https://www.linkedin.com/in/williamallred/" target="_blank" rel="noopener">Top Sales Voice 2021 ↗</a>
+        </div>
+        <div class="what">Daily teardowns of cold emails. Frameworks like <em>the Mouse Trap</em>. Lavender hit <em>30,000+ active users</em> with Will's content as the top of funnel. The exact "AI for cold email" adjacency to Parakeet's roadmap. Eric's buyer already reads him.</div>
+        <div class="tag">Cold email AI · Daily posts</div>
+      </div>
+      <div class="benchmark-row">
+        <div class="who">
+          Jason Bay
+          <span class="role">Founder &amp; CEO, Outbound Squad</span>
+          <a class="stat" href="https://www.linkedin.com/in/jasondbay/" target="_blank" rel="noopener">83K followers ↗</a>
+        </div>
+        <div class="what">Salesforce Top Influencer 2024. Posts 3× a week on practical outbound tactics. Trains sales teams at <em>Zoom, Rippling, Monday, Shopify, Gong</em>. Same buyer as Parakeet, different vehicle. Proof you can build an 8-figure outbound business with LinkedIn as the engine.</div>
+        <div class="tag">Outbound training · 83K following</div>
+      </div>
+    </div>
+
+    <div class="benchmark-takeaway">
+      <p>Eric should be mentioned in this group within 12 months. <em>That's the work.</em></p>
+    </div>
   </section>
 </div>
 
