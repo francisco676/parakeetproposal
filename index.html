@@ -206,23 +206,6 @@
   .hero-plate .for-line{margin-top:36px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);position:relative;z-index:1}
   @media (max-width:680px){.hero-plate{padding:40px 28px 36px;border-radius:24px}.hero-plate .partner{font-size:22px}.hero-plate .partner .x-mark{font-size:24px}}
 
-  /* ==== STICKY OUTLINE SIDEBAR (fixed-position floater) ==== */
-  .outline-col{position:fixed;right:32px;top:50%;transform:translateY(-50%);width:200px;max-height:80vh;overflow-y:auto;padding:20px 18px 20px 22px;background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;font-size:13px;z-index:50;box-shadow:0 1px 0 rgba(0,0,0,.02),0 24px 48px -28px rgba(11,16,32,.18);transition:opacity .25s ease;scrollbar-width:thin}
-  .outline-col::-webkit-scrollbar{width:4px}
-  .outline-col::-webkit-scrollbar-thumb{background:var(--line);border-radius:999px}
-  .outline-col .outline-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
-  .outline-col .outline-total{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:18px;color:var(--ink);line-height:1.1;margin-bottom:4px}
-  .outline-col .outline-total-sub{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-  .outline-col ol{list-style:none;padding:0;margin:0;counter-reset:outline}
-  .outline-col li{counter-increment:outline;margin-bottom:10px;line-height:1.35;display:grid;grid-template-columns:18px 1fr;gap:6px;align-items:baseline}
-  .outline-col li::before{content:counter(outline,decimal-leading-zero);font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray);letter-spacing:.06em}
-  .outline-col li a{color:var(--ink);text-decoration:none;display:block;font-size:12px;border-bottom:1px solid transparent;transition:color .15s,border-color .15s}
-  .outline-col li a:hover{color:var(--blue);border-bottom-color:var(--blue)}
-  .outline-col li.active > a{color:var(--blue);font-weight:600}
-  .outline-col li .read-time{display:block;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--gray);margin-top:1px;letter-spacing:.06em}
-  /* Hide outline on smaller screens (content max is 920px + 28px padding, sidebar needs ~240px to the right) */
-  @media (max-width:1280px){.outline-col{display:none}}
-
   /* ==== CURIOSITY GAP TOGGLE (around cost-card) ==== */
   .gap-toggle{margin-top:32px;border:1px solid var(--ink);border-radius:24px;overflow:hidden;background:#fff;transition:border-color .2s ease}
   .gap-toggle[open]{border-color:var(--ink)}
@@ -370,29 +353,92 @@
   .benchmark-takeaway p{margin:0;font-size:16px;line-height:1.5;color:var(--ink)}
   .benchmark-takeaway p em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400}
   @media (max-width:680px){.benchmark-row{grid-template-columns:1fr;gap:8px;padding:20px 0}.benchmark-row .tag{text-align:left}}
+
+  /* ==== STYLED SIDEBAR (in-flow, left, sticky) ==== */
+  .page-layout{display:grid;grid-template-columns:260px 1fr;align-items:start;min-height:100vh}
+  .main{min-width:0}
+
+  .sidebar{position:sticky;top:0;height:100vh;padding:32px 24px 28px 32px;border-right:1px solid var(--line);background:var(--bg);display:flex;flex-direction:column;z-index:10}
+  .sidebar-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;letter-spacing:-0.02em;color:var(--ink);margin-bottom:6px}
+  .sidebar-brand .dot{width:8px;height:8px;border-radius:999px;background:var(--blue);box-shadow:0 0 0 4px rgba(61,104,245,.12)}
+  .sidebar-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:18px;padding-left:18px}
+  .sidebar-for{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg-soft);border:1px solid var(--line);border-radius:12px;margin-bottom:24px}
+  .sidebar-for .for-orb{height:20px;width:auto;max-width:80px;display:block;flex-shrink:0;object-fit:contain}
+  .sidebar-for .for-text{display:flex;flex-direction:column;gap:1px;min-width:0}
+  .sidebar-for .for-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:500}
+  .sidebar-for .for-name{font-family:'Inter',sans-serif;font-weight:800;font-size:13px;letter-spacing:-0.02em;color:var(--ink);line-height:1.1}
+  .sidebar-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;font-weight:500}
+  .sidebar-total{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;font-size:18px;color:var(--ink);line-height:1.1;margin-bottom:4px}
+  .sidebar-total-sub{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+
+  .sidebar nav{display:flex;flex-direction:column;gap:1px;flex:1;min-height:0;overflow-y:auto;margin:0 -8px;padding:0 8px}
+  .sidebar nav::-webkit-scrollbar{width:0}
+  .sidebar nav a{display:flex;align-items:center;gap:12px;padding:9px 10px;font-size:13px;color:var(--gray);text-decoration:none;border-radius:8px;font-weight:500;transition:color .18s ease, background .18s ease;position:relative}
+  .sidebar nav a .num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.04em;color:var(--gray);width:14px;flex-shrink:0;text-align:right;transition:color .18s ease}
+  .sidebar nav a .label{flex:1;line-height:1.3}
+  .sidebar nav a .read-time{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;color:var(--gray);font-weight:400;flex-shrink:0;margin-left:auto}
+  .sidebar nav a:hover{color:var(--ink);background:var(--bg-soft)}
+  .sidebar nav a:hover .num{color:var(--ink)}
+  .sidebar nav a.active{color:var(--ink);background:var(--bg-soft);font-weight:600}
+  .sidebar nav a.active .num{color:var(--blue);font-weight:700}
+  .sidebar nav a.active .read-time{color:var(--blue)}
+  .sidebar nav a.active::after{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;background:var(--blue);border-radius:0 3px 3px 0;margin-left:-8px}
+
+  .progress-block{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}
+  .progress-text{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-weight:500}
+  .progress-text .pct{color:var(--ink);font-weight:600}
+  .progress-bar{height:3px;background:var(--line);border-radius:999px;overflow:hidden}
+  .progress-fill{height:100%;background:var(--blue);border-radius:999px;width:0%;transition:width .15s linear}
+
+  @media (max-width:1100px){
+    .page-layout{grid-template-columns:1fr}
+    .sidebar{display:none}
+  }
+
+  html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
 
-<aside class="outline-col" aria-label="Proposal sections">
-  <div class="outline-label">In this proposal</div>
-  <div class="outline-total">~13 min read</div>
-  <div class="outline-total-sub">12 sections</div>
-  <ol>
-    <li><a href="#bet">The bet</a><span class="read-time">1 min</span></li>
-    <li><a href="#gap">The 6-month gap</a><span class="read-time">2 min</span></li>
-    <li><a href="#claude">The Claude question</a><span class="read-time">2 min</span></li>
-    <li><a href="#how">How we work</a><span class="read-time">1 min</span></li>
-    <li><a href="#kpis">The KPIs</a><span class="read-time">1 min</span></li>
-    <li><a href="#timeline">90-day timeline</a><span class="read-time">1 min</span></li>
-    <li><a href="#proof">PandaDoc receipt</a><span class="read-time">30 sec</span></li>
-    <li><a href="#voices">Top voices</a><span class="read-time">1 min</span></li>
-    <li><a href="#whynow">Why now</a><span class="read-time">2 min</span></li>
-    <li><a href="#offer">The offer</a><span class="read-time">2 min</span></li>
-    <li><a href="#honest">The honest part</a><span class="read-time">2 min</span></li>
-    <li><a href="#next">Next step</a><span class="read-time">30 sec</span></li>
-  </ol>
+<div class="page-layout">
+
+<aside class="sidebar">
+  <div class="sidebar-brand"><span class="dot"></span>RallyUp</div>
+  <div class="sidebar-sub">Proposal · Q2 2026</div>
+
+  <div class="sidebar-for">
+    <img class="for-orb" src="assets/parakeet-logo.png" alt="" />
+    <div class="for-text">
+      <span class="for-label">For</span>
+      <span class="for-name">Parakeet</span>
+    </div>
+  </div>
+
+  <div class="sidebar-label">In this proposal</div>
+  <div class="sidebar-total">~13 min read</div>
+  <div class="sidebar-total-sub">12 sections</div>
+  <nav>
+    <a href="#bet"><span class="num">01</span><span class="label">The bet</span><span class="read-time">1 min</span></a>
+    <a href="#gap"><span class="num">02</span><span class="label">The 6-month gap</span><span class="read-time">2 min</span></a>
+    <a href="#claude"><span class="num">03</span><span class="label">The Claude question</span><span class="read-time">2 min</span></a>
+    <a href="#how"><span class="num">04</span><span class="label">How we work</span><span class="read-time">1 min</span></a>
+    <a href="#kpis"><span class="num">05</span><span class="label">The KPIs</span><span class="read-time">1 min</span></a>
+    <a href="#timeline"><span class="num">06</span><span class="label">90-day timeline</span><span class="read-time">1 min</span></a>
+    <a href="#proof"><span class="num">07</span><span class="label">PandaDoc receipt</span><span class="read-time">30s</span></a>
+    <a href="#voices"><span class="num">08</span><span class="label">Top voices</span><span class="read-time">1 min</span></a>
+    <a href="#whynow"><span class="num">09</span><span class="label">Why now</span><span class="read-time">2 min</span></a>
+    <a href="#offer"><span class="num">10</span><span class="label">The offer</span><span class="read-time">2 min</span></a>
+    <a href="#honest"><span class="num">11</span><span class="label">The honest part</span><span class="read-time">2 min</span></a>
+    <a href="#next"><span class="num">12</span><span class="label">Next step</span><span class="read-time">30s</span></a>
+  </nav>
+
+  <div class="progress-block">
+    <div class="progress-text"><span>Progress</span><span class="pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill"></div></div>
+  </div>
 </aside>
+
+<main class="main">
 
 <div class="wrap">
   <header class="top">
@@ -666,29 +712,28 @@
     <!-- LinkedIn-style mock post -->
     <div class="post-mock">
       <div class="post-header">
-        <div class="post-avatar">WA</div>
+        <div class="post-avatar">GA</div>
         <div class="who">
-          Will Allred
-          <span class="role">Co-Founder, Lavender (now Ora.im) · LinkedIn Top Sales Voice</span>
-          <span class="meta-line">9h · Edited</span>
+          Gal Aga
+          <span class="role">Co-Founder &amp; CEO at Aligned · 92,000 followers</span>
+          <span class="meta-line">14h · Edited</span>
         </div>
       </div>
       <div class="post-body">
-        <p>Got a DM from a VP of Sales yesterday.</p>
-        <p><strong>"I've been reading your teardowns for 18 months. We need Lavender. Just send the contract."</strong></p>
-        <p>No discovery call. No pitch deck. He'd already pre-qualified himself across 200+ posts.</p>
-        <p>This is what I keep trying to tell founders selling into sales teams: nobody buys a cold email tool because the demo was good. They buy it because they already trust the person who built it. The only way to compound that trust at scale is to post. Daily. Specifically. With receipts.</p>
-        <p>Lavender went <em>0 → 30,000+ active users</em> without a single SDR. The top of the funnel was my account. That was the engine.</p>
-        <p><strong>If you sell into sales orgs and your founder is silent on LinkedIn, your competition's founder isn't. And the AE reading their posts is the same AE evaluating you next quarter.</strong></p>
+        <p>Closed an enterprise deal last week.</p>
+        <p>The buyer told me, in the kickoff call: <strong>"I've been reading your posts for nine months. By the time my team brought you in, I was already sold."</strong></p>
+        <p>I wrote 0 cold emails to that account. We have 0 SDRs. The post that sold him was about pricing transparency in B2B SaaS. He commented on it in February. We talked in October. He signed in November.</p>
+        <p>This is what founder content actually does. Not <em>"thought leadership."</em> Pipeline. Nine months of compounding pipeline that no other channel can produce.</p>
+        <p><strong>If you're a founder and you're not posting, you're outsourcing your category narrative to whoever is.</strong></p>
       </div>
       <div class="post-stats">
-        <span class="stat-pill"><strong>1,847</strong> reactions</span>
-        <span class="stat-pill"><strong>203</strong> comments</span>
+        <span class="stat-pill"><strong>2,847</strong> reactions</span>
+        <span class="stat-pill"><strong>312</strong> comments</span>
         <span class="stat-pill highlight">Illustrative</span>
       </div>
     </div>
 
-    <p class="body" style="margin-top:24px">The post above is illustrative, composed in the style and substance of what Will publishes daily. <strong>The pattern is real and verifiable on his profile.</strong> Founder posts → category recognition → pipeline that arrives pre-qualified. This is the engine we're proposing to build for Eric.</p>
+    <p class="body" style="margin-top:24px">The post above is illustrative, composed in the style and substance of what Gal actually publishes. <strong>The pattern is real and verifiable on his profile.</strong> Founder posts → enterprise deals → no SDRs needed. This is the engine we're proposing to build for Eric.</p>
 
     <div class="benchmarks">
       <div class="benchmark-row">
@@ -906,28 +951,41 @@
   </footer>
 </div>
 
+</main>
+
+</div>
+
 <script>
 (function(){
-  // ===== Outline scrollspy =====
-  var links = document.querySelectorAll('.outline-col li a');
-  var sections = [];
-  links.forEach(function(a){
-    var id = a.getAttribute('href').slice(1);
-    var el = document.getElementById(id);
-    if(el) sections.push({id:id, el:el, li:a.parentElement});
-  });
-  function onScroll(){
-    var y = window.scrollY + 120;
-    var active = null;
-    for(var i=0;i<sections.length;i++){
-      if(sections[i].el.offsetTop <= y) active = sections[i];
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+  const links = Array.from(document.querySelectorAll('.sidebar nav a'));
+  const fill = document.querySelector('.progress-fill');
+  const pctEl = document.querySelector('.progress-text .pct');
+
+  function update(){
+    const scrollY = window.scrollY;
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docH > 0 ? Math.min(100, Math.max(0, (scrollY / docH) * 100)) : 0;
+
+    if (fill) fill.style.width = pct + '%';
+    if (pctEl) pctEl.textContent = Math.round(pct) + '%';
+
+    const triggerY = scrollY + window.innerHeight * 0.25;
+    let active = sections[0];
+    for (const s of sections){
+      if (s.offsetTop <= triggerY) active = s;
     }
-    sections.forEach(function(s){ s.li.classList.toggle('active', s === active); });
+    if (active){
+      links.forEach(a => {
+        a.classList.toggle('active', a.getAttribute('href') === '#' + active.id);
+      });
+    }
   }
-  if(sections.length){
-    window.addEventListener('scroll', onScroll, {passive:true});
-    onScroll();
-  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  window.addEventListener('load', update);
+  update();
 })();
 </script>
 
